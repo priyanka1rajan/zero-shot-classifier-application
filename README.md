@@ -73,8 +73,9 @@ https://user-images.githubusercontent.com/68397302/171956063-4ce14ceb-debd-4413-
 ### Putting it all together
 The following figure shows implementation logic for this application. We first acquire streaming image and use OpenCV library to detect motion. Once motion is detected, we collect frames around motion and pass on the video snippet to CLIP module for processing. Given that CLIP processing time can range from 0.01 - 10 seconds based on your compute capability, we spun a new thread to process the video snippet. If a positive detection is made, results are logged into MySQL database. To make this more interesting we also log local weather report at that timestamp. 
 
-![System](https://github.com/priyanka1rajan/CLIP-Application/blob/main/motion_classifier.png?raw=true)
+![System](https://user-images.githubusercontent.com/68397302/173497497-e29edabf-4014-47b3-ad7f-abd86aa26bed.png)
+
 
 And finally here's the Grafana dashboard. It has nice and easy to use interface to MySQL and embed images / video clips. Hope you find this useful. If any questions, please do reach out!
 
-![Grafana Dashboard](https://github.com/priyanka1rajan/CLIP-Application/blob/main/Grafana%20Dashboard-1.png?raw=true)
+![Grafana Dashboard](https://user-images.githubusercontent.com/68397302/173497586-f088d2e8-8335-441a-88d7-789c64e2eee0.png)
