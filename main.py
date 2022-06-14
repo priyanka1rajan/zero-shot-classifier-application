@@ -89,7 +89,7 @@ def log_data(frame_arr, offsets, timestamp_arr, fps, width, height):
         temperature, humidity, conditions = obj.get_weather_report()
 
         postgres = PostgresIO()
-        if 0:
+        if True:
             postgres.update_table(timestamp_arr[indx], day, temperature, humidity, conditions, who, frame_probs[indx],
                               grafana_frame_url, grafana_clip_url)
 
@@ -101,10 +101,10 @@ def main():
     if any desired object has been detected via CLIP classifier. Positive object detections lead to SQL table updates.
     """
 
-    # rtsp_url = 'rtsp://192.168.86.150/axis-media/media.3gp'#73.15.66.192:23570/axis-media/media.amp'
 
     # Open rtsp stream (this could be offline video stream as well)
-    rtsp_url = '../rtsp/output5.avi'
+    rtsp_url = 'rtsp://192.168.86.150/axis-media/media.3gp' # replace with your streaming link
+    #rtsp_url = '../rtsp/output5.avi'
     vcap = cv2.VideoCapture(rtsp_url)
     fps = vcap.get(cv2.CAP_PROP_FPS)
     width = int(vcap.get(cv2.CAP_PROP_FRAME_WIDTH))
